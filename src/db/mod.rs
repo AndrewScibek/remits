@@ -151,10 +151,12 @@ mod tests {
             "func".to_owned(),
         );
         assert_eq!(db.manifest.logs.len(), 1);
+        assert_eq!(db.manifest.itrs.len(), 1);
         // Normal
         let out = db.log_del("test".to_owned()).unwrap();
         assert_eq!(out, "ok".to_owned());
         assert_eq!(db.manifest.logs.len(), 0);
+        assert_eq!(db.manifest.itrs.len(), 0);
         // Repeat
         let out = db.log_del("test".to_owned()).unwrap();
         assert_eq!(out, "ok".to_owned());
